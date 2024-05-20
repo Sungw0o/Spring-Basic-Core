@@ -16,11 +16,13 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
     @Bean
     public MemberService memberService(){
-        return new MemberServiceImpl(new MemoryMemberRepository()); // 생성자 주입
+        System.out.println("call AppConfig.memberService");
+        return new MemberServiceImpl(memberRepository()); // 생성자 주입
     }
 
     @Bean
     public MemberRepository memberRepository(){
+        System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
 
